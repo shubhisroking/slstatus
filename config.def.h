@@ -71,7 +71,7 @@ static const struct arg args[] = {
   // { ipv4, "NET  %s | ", "wlan0" },
   // { run_command, "VOL  %s | ", "amixer sget Master | awk -F\"[][]\" '/%/ { print $2 }' | head -n1 " },
   /* From commandline: pactl list sinks | awk '$1=="Volume:" {print $5}' */
-  { run_command, "VOL  %s | ", "pactl list sinks | awk '$1==\"Volume:\" {print $5}' " },
+  { run_command, "VOL  %s | ", "pactl get-sink-volume 0 | awk '{print $5}'" },
   { battery_perc,"BAT  %s%% | ", "BAT0"},
   // { datetime, " %s ", "%Y-%m-%d  %T" },
   { datetime, " %s ", "%Y-%m-%d  %H:%M" },
